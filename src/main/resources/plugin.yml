@@ -1,0 +1,6 @@
+name: PaperBoilerplate
+main: one.devsky.boilerplates.PaperBoilerplate
+version: 1.18.2
+description: "This is a template for a new plugin based on MoltenKT and Paper."
+author: "CoasterFreakDE"
+api-version: 1.18
