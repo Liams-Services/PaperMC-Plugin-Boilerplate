@@ -15,5 +15,7 @@
     <a href="https://discord.gg/devsky">Main-Server</a>
     ·
     <a href="https://devsky.one">Website</a>
+    ·
+    <a href="https://github.com/TheFruxz/MoltenKT">MoltenKT Framework</a>
   </p>
 </div>
