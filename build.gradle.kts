@@ -1,12 +1,14 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.6.20"
+    kotlin("jvm") version "1.7.10"
 }
 
 group = "one.devsky.boilerplates"
-version = "1.0-SNAPSHOT"
-var moltenVersion = "1.0-PRE-9.4"
+version = "1.1-SNAPSHOT"
+
+val moltenVersion: String by project
+val exposedVersion: String by project
 
 repositories {
     mavenCentral()
@@ -18,8 +20,8 @@ repositories {
 
 dependencies {
     // Kotlin Base Dependencies
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3-native-mt")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
 
     // Minecraft PaperMC Dependencies
     compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
@@ -32,10 +34,10 @@ dependencies {
     implementation("com.github.TheFruxz.MoltenKT:moltenkt-unfold:$moltenVersion")
 
     // Database Dependencies - Kotlin Exposed
-    implementation("org.jetbrains.exposed:exposed-core:0.37.3")
-    implementation("org.jetbrains.exposed:exposed-dao:0.37.3")
-    implementation("org.jetbrains.exposed:exposed-jdbc:0.37.3")
-    implementation("org.jetbrains.exposed:exposed-java-time:0.37.3")
+    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-java-time:$exposedVersion")
 }
 
 tasks.withType<KotlinCompile>() {
