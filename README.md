@@ -7,7 +7,7 @@
   <h3 align="center">DevSky PaperMC Plugin Boilerplate</h3>
 
   <p align="center">
-    This is a PaperMC MoletenKT Minecraft template
+    This is a PaperMC MoltenKT Minecraft template
     <br />
     <a href="https://discord.com/users/216487432667791360"><strong>Contact »</strong></a>
     <br />
