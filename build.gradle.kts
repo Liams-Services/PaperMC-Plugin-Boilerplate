@@ -7,8 +7,9 @@ plugins {
 group = "one.devsky.boilerplates"
 version = "1.1-SNAPSHOT"
 
-val moltenVersion: String by project
-val exposedVersion: String by project
+val stackedVersion = "3.0.1"
+val sparkleVersion = "1.0.0-PRE-19"
+val exposedVersion = "0.40.1"
 
 repositories {
     mavenCentral()
@@ -20,8 +21,8 @@ repositories {
 
 dependencies {
     // Kotlin Base Dependencies
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3-native-mt")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4-native-mt")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 
     // Minecraft PaperMC Dependencies
     compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
@@ -29,9 +30,11 @@ dependencies {
     // Reflection Dependencies for automatic registration of commands and listeners
     implementation("net.oneandone.reflections8:reflections8:0.11.7")
 
-    // Molten Kotlin Framework (https://github.com/TheFruxz/MoltenKT)
-    implementation("com.github.TheFruxz.MoltenKT:moltenkt-core:$moltenVersion")
-    implementation("com.github.TheFruxz.MoltenKT:moltenkt-unfold:$moltenVersion")
+    // Sparkle Adventure Components (https://github.com/TheFruxz/Sparkle)
+    implementation("com.github.TheFruxz:sparkle:$sparkleVersion")
+
+    // Stacked SpigotMC Components (https://github.com/TheFruxz/Stacked)
+    implementation("com.github.TheFruxz:Stacked:$stackedVersion")
 
     // Database Dependencies - Kotlin Exposed
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
