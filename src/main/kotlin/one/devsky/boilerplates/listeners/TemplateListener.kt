@@ -1,6 +1,6 @@
 package one.devsky.boilerplates.listeners
 
-import de.moltenKt.unfold.text
+import de.fruxz.stacked.text
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent

@@ -1,6 +1,6 @@
 package one.devsky.boilerplates.commands
 
-import de.moltenKt.unfold.text
+import de.fruxz.stacked.text
 import one.devsky.boilerplates.annotations.RegisterCommand
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
