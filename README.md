@@ -7,7 +7,7 @@
   <h3 align="center">DevSky PaperMC Plugin Boilerplate</h3>
 
   <p align="center">
-    This is a PaperMC MoltenKT Minecraft template
+    This is a PaperMC Ascend Minecraft template
     <br />
     <a href="https://discord.com/users/216487432667791360"><strong>Contact »</strong></a>
     <br />
@@ -16,6 +16,6 @@
     ·
     <a href="https://devsky.one">Website</a>
     ·
-    <a href="https://github.com/TheFruxz/MoltenKT">MoltenKT Framework</a>
+    <a href="https://github.com/TheFruxz/Ascend">Ascend Framework</a>
   </p>
 </div>
