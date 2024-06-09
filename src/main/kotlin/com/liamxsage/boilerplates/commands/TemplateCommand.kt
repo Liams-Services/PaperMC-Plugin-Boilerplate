@@ -1,7 +1,7 @@
-package one.devsky.boilerplates.commands
+package com.liamxsage.boilerplates.commands
 
-import de.fruxz.stacked.text
-import one.devsky.boilerplates.annotations.RegisterCommand
+import com.liamxsage.boilerplates.annotations.RegisterCommand
+import com.liamxsage.boilerplates.extensions.sendMessagePrefixed
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -10,7 +10,7 @@ import org.bukkit.permissions.PermissionDefault
 @RegisterCommand(
     name = "template",
     description = "Template command",
-    permission = "one.devsky.boilerplates.commands.template",
+    permission = "boilerplates.commands.template",
     permissionDefault = PermissionDefault.OP,
     aliases = ["temp"]
 )
@@ -19,7 +19,7 @@ class TemplateCommand : CommandExecutor {
     /**
      * Executes the given command, returning its success.
      * <br></br>
-     * If false is returned, then the "usage" plugin.yml entry for this command
+     * If false is returned, then the "usage" paper-plugin.yml entry for this command
      * (if defined) will be sent to the player.
      *
      * @param sender Source of the command
@@ -30,8 +30,8 @@ class TemplateCommand : CommandExecutor {
      */
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
 
-        sender.sendMessage(
-            text("<#74b9ff><bold>Boilerplate »</bold> <hover:show_text:'<#dfe6e9>This is a tooltip'><gradient:#ffeaa7:#74b9ff>Just a cool looking template text.</gradient></hover>")
+        sender.sendMessagePrefixed(
+            "<hover:show_text:'<#dfe6e9>This is a tooltip'><gradient:#ffeaa7:#74b9ff>Just a cool looking template text.</gradient></hover>"
         )
 
         return true

@@ -1,6 +1,6 @@
-package one.devsky.boilerplates
+package com.liamxsage.boilerplates
 
-import one.devsky.boilerplates.managers.RegisterManager.registerAll
+import com.liamxsage.boilerplates.managers.RegisterManager
 import org.bukkit.plugin.java.JavaPlugin
 import kotlin.system.measureTimeMillis
 
@@ -18,7 +18,8 @@ class PaperBoilerplate : JavaPlugin() {
     override fun onEnable() {
         // Plugin startup logic
         val time = measureTimeMillis {
-            registerAll()
+            RegisterManager.registerCommands()
+            RegisterManager.registerListeners()
         }
         println("Plugin enabled in $time ms")
         println("PaperBoilerplate is now tweaking your vanilla behavior!")

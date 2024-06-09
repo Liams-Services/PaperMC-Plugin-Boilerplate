@@ -1,6 +1,6 @@
-package one.devsky.boilerplates.listeners
+package com.liamxsage.boilerplates.listeners
 
-import de.fruxz.stacked.text
+import dev.fruxz.stacked.text
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent

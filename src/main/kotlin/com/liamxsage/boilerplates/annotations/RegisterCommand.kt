@@ -1,4 +1,4 @@
-package one.devsky.boilerplates.annotations
+package com.liamxsage.boilerplates.annotations
 
 import org.bukkit.permissions.PermissionDefault
 
@@ -7,11 +7,8 @@ import org.bukkit.permissions.PermissionDefault
 annotation class RegisterCommand(
     val name: String,
     val description: String = "",
-
-    /**
-     * Todo: Setup a default permission for your commands
-     */
     val permission: String = "",
-    val permissionDefault: PermissionDefault = PermissionDefault.TRUE,
-    val aliases: Array<out String> = []
+    val usage: String = "",
+    val permissionDefault: PermissionDefault = PermissionDefault.OP,
+    val aliases: Array<out String> = [],
 )
