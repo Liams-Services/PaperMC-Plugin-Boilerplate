@@ -18,10 +18,9 @@ class PaperBoilerplate : JavaPlugin() {
     override fun onEnable() {
         // Plugin startup logic
         val time = measureTimeMillis {
-            RegisterManager.registerCommands()
-            RegisterManager.registerListeners()
+            RegisterManager.registerListeners(this)
         }
-        println("Plugin enabled in $time ms")
-        println("PaperBoilerplate is now tweaking your vanilla behavior!")
+        logger.info("Plugin enabled in $time ms")
+        logger.info("PaperBoilerplate is now tweaking your vanilla behavior!")
     }
 }
