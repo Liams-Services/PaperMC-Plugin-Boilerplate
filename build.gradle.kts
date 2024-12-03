@@ -1,3 +1,7 @@
+import org.gradle.kotlin.dsl.invoke
+import java.util.Calendar
+import java.util.TimeZone
+
 plugins {
     kotlin("jvm") version "2.0.0"
     id("io.papermc.paperweight.userdev") version "1.7.1"
@@ -6,14 +10,16 @@ plugins {
 
 val pluginVersion: String by project
 
+val dailyVersion = Calendar.getInstance(TimeZone.getTimeZone("Europe/Berlin")).run {
+    "${get(Calendar.YEAR)}.${get(Calendar.MONTH) + 1}.${get(Calendar.DAY_OF_MONTH)}"
+}
+
 group = "com.liamxsage.boilerplates"
-version = pluginVersion
+version = "$pluginVersion-$dailyVersion"
 
 val minecraftVersion: String by project
 val slf4jVersion: String by project
 
-val exposedVersion: String by project
-val hikariCPVersion: String by project
 val dotenvKotlinVersion: String by project
 
 val fruxzAscendVersion: String by project
@@ -24,12 +30,10 @@ val kotlinxCollectionsImmutableVersion: String by project
 
 val gsonVersion: String by project
 
-val ktorVersion: String by project
-
 val mcCoroutineVersion: String by project
 
 repositories {
-    maven("https://nexus.flawcra.cc/repository/maven-mirrors/")
+    maven("https://nexus.modlabs.cc/repository/maven-mirrors/")
 }
 
 val deliverDependencies = listOf(
@@ -41,24 +45,10 @@ val deliverDependencies = listOf(
     "org.jetbrains.kotlinx:kotlinx-collections-immutable:$kotlinxCollectionsImmutableVersion",
     "com.google.code.gson:gson:$gsonVersion",
 
-    "io.ktor:ktor-client-core-jvm:$ktorVersion",
-    "io.ktor:ktor-client-cio-jvm:$ktorVersion",
-    "io.ktor:ktor-client-json-jvm:$ktorVersion",
-    "io.ktor:ktor-serialization-kotlinx-json-jvm:$ktorVersion",
-    "io.ktor:ktor-client-serialization-jvm:$ktorVersion",
-    "io.ktor:ktor-client-content-negotiation-jvm:$ktorVersion",
-
     "dev.fruxz:ascend:$fruxzAscendVersion",
     "dev.fruxz:stacked:$fruxzStackedVersion",
 
     "io.github.cdimascio:dotenv-kotlin:$dotenvKotlinVersion", // - .env support
-
-    "org.jetbrains.exposed:exposed-core:$exposedVersion",
-    "org.jetbrains.exposed:exposed-dao:$exposedVersion",
-    "org.jetbrains.exposed:exposed-jdbc:$exposedVersion",
-    "org.jetbrains.exposed:exposed-java-time:$exposedVersion",
-    "com.zaxxer:HikariCP:$hikariCPVersion",
-
     "org.slf4j:slf4j-api:$slf4jVersion",
 )
 
@@ -71,6 +61,8 @@ fun Dependency?.deliver() = this?.apply {
 
 dependencies {
     paperweight.paperDevBundle("$minecraftVersion-R0.1-SNAPSHOT")
+
+    compileOnly("me.clip:placeholderapi:2.11.6")
 
     implementation(kotlin("stdlib")).deliver()
     implementation(kotlin("reflect")).deliver()
@@ -105,10 +97,12 @@ tasks {
             include(".dependencies")
         }
 
-        expand(
-            "version" to project.version,
-            "name" to project.name,
-        )
+        filesMatching("paper-plugin.yml") {
+            expand(
+                "version" to project.version,
+                "name" to project.name,
+            )
+        }
     }
 
     register<JavaCompile>("compileMain") {
